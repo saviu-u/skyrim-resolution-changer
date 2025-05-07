@@ -1,0 +1,32 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'  # Trigger on tag push, e.g., v1.0.0
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up .NET SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0'  # Change the .NET version if necessary
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Publish the project
+        run: dotnet publish -o ./publish -r win-x64 -c Release /p:PublishSingleFile=true /p:IncludeAllContentForSelfExtract=true /p:DebugType=None
+
+      - name: Create release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ./publish/*
+          token: ${{ secrets.ACTION_GITHUB_TOKEN }}
+          body_path: ${{ github.workspace }}/CHANGELOG.txt
