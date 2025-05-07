@@ -10,6 +10,9 @@
     <UseWindowsForms>true</UseWindowsForms>
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
     <NoWarn>NU1701</NoWarn>
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>False</SelfContained>
+    <DebugType>None</DebugType>
   </PropertyGroup>
 
   <ItemGroup>

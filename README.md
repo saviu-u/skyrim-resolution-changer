@@ -6,6 +6,9 @@ resolution
 It does it by changing the `.exe` to inject the resolution into the `SkyrimPrefs.ini` file before initializing the game
 itself
 
+## Requirements
+
+1. [Dotnet 8 Runtime](https://dotnet.microsoft.com/pt-br/download/dotnet/8.0/runtime)
 
 ## Installation ***(If you want to open the game from Steam)***
 

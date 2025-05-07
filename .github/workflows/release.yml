@@ -22,7 +22,7 @@ jobs:
         run: dotnet restore
 
       - name: Publish the project
-        run: dotnet publish -o ./publish -r win-x64 -c Release /p:PublishSingleFile=true /p:IncludeAllContentForSelfExtract=true /p:DebugType=None
+        run: dotnet publish -o ./publish -r win-x64 -c Release
 
       - name: Create release
         uses: softprops/action-gh-release@v1
